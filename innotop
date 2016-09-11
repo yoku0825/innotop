@@ -81,6 +81,11 @@ sub new {
             dsn  => 'port',
             copy => 1,
          },
+         s => {
+            desc => 'CA file for using SSL',
+            dsn  => 'mysql_ssl_ca_file',
+            copy => 1,
+         },
          S => {
             desc => 'Socket file to use for connection',
             dsn  => 'mysql_socket',
@@ -237,6 +242,7 @@ sub fill_in_dsn {
    $user =~ s/@.*//;
    $dsn->{h} ||= $vars->{hostname}->{Value};
    $dsn->{S} ||= $vars->{'socket'}->{Value};
+   $dsn->{l} ||= $vars->{'sslca'}->{Value} ||= undef;
    $dsn->{P} ||= $vars->{port}->{Value};
    $dsn->{u} ||= $user;
    $dsn->{D} ||= $db;
@@ -1499,6 +1505,7 @@ my @opt_spec = (
    { s => 'port|P=i',   d => 'Port number to use for connection' },
    { s => 'socket|S=s', d => 'MySQL socket to use for connection' },
    { s => 'timestamp|t+', d => 'Print timestamp in -n mode (1: per iter; 2: per line)' },
+   { s => 'sslca|l=s',   d => 'Specify CA file for SSL connecting' },
 );
 
 # This is the container for the command-line options' values to be stored in
