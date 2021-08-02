@@ -1451,7 +1451,7 @@ my @opt_spec = (
    { s => 'ssl_client_key=s', d => 'Passed to mysql_ssl_client_key', c => 'mysql_ssl_client_key' },
    { s => 'ssl_client_cert=s', d => 'Passed to mysql_ssl_client_cert', c => 'mysql_ssl_client_cert' },
    { s => 'ssl_cipher=s', d => 'Passed to mysql_ssl_cipher', c => 'mysql_ssl_cipher' },
-   { s => 'login_path=s', d => 'Read my.cnf/.my_login.cnf option group', c => 'login_path' },
+   { s => 'login_path=s', d => 'Read my.cnf/.mylogin.cnf option group', c => 'login_path' },
 );
 
 # This is the container for the command-line options' values to be stored in
